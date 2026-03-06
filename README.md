@@ -17,22 +17,38 @@ Deploys the container on an AWS EC2 instance
 This automates the build → containerization → deployment process.
 
 Architecture
+
 Developer
+
    │
+   
    ▼
+   
 GitHub Repository
+
    │
    ▼
+   
 Jenkins Pipeline
+   
    │
+   
    ├── Build Docker Image
+   
    ├── Tag Image (Build Number)
+   
    ├── Push to Docker Hub
+   
    │
+   
    ▼
+
 AWS EC2 Instance
+
    │
+   
    ├── Pull Latest Image
+   
    └── Run Docker Container
 Tech Stack
 **Application**
