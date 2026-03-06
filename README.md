@@ -117,6 +117,7 @@ Running the Project Locally
 Clone repository:
 
 git clone https://github.com/vaibhav1-hack/React_app_automated-with-jenkins.git
+
 cd React_app_automated-with-jenkins
 
 Build Docker image:
