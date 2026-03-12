@@ -3,8 +3,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_REPO = "yuvarajrolex/react-app"
-        EC2_IP = "3.109.32.132"
+        DOCKER_HUB_REPO = "vaibhavswarnkar2006/react_app"
+        EC2_IP = "13.60.197.148"
         EC2_USER = "ec2-user"
     }
 
@@ -12,7 +12,7 @@ pipeline {
         stage('Clone Code') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/dontsearchme/React-app.git'
+                    url: 'https://github.com/dontsearchme/React_app_automated_with_jenkins.git'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
+                    credentialsId: 'docker-creds',
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
@@ -39,7 +39,7 @@ pipeline {
     steps {
         sh '''
             ssh -o StrictHostKeyChecking=no \
-            -i /var/lib/jenkins/rolex.pem \
+            -i /home/ec2-user/fourth.pem \
             ${EC2_USER}@${EC2_IP} "
             docker pull ${DOCKER_HUB_REPO}:latest &&
             docker stop react-app || true &&
