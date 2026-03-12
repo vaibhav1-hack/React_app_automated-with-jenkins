@@ -8,13 +8,13 @@ pipeline {
         EC2_USER = "ec2-user"
     }
 
-    // stages {
-    //     stage('Clone Code') {
-    //         steps {
-    //             git branch: 'main',
-    //                 url: 'https://github.com/vaibhav1-hack/React_app_automated_with_jenkins.git'
-    //         }
-    //     }
+    stages {
+        stage('Clone Code') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/vaibhav1-hack/React_app_automated-with-jenkins.git'
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
